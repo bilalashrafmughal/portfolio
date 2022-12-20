@@ -43,7 +43,7 @@ export default function Navbar() {
   };
   return (
     <NavPaper>
-      <StyledNavbar mode={mode}>
+      <StyledNavbar mode={mode} data-aos="fade-down">
         <div className="nav-logo">
           <Link to="/">
             <img

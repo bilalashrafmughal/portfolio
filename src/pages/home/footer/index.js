@@ -9,7 +9,10 @@ export default function Footer() {
   const mode = useSelector((state) => state.mode.mode);
   return (
     <Paper>
-      <div className="flex flex-col md:flex-row justify-between items-center py-24">
+      <div
+        className="flex flex-col md:flex-row justify-between items-center py-24"
+        data-aos="fade-up"
+      >
         <div className="nav-logo w-32">
           <img
             src={

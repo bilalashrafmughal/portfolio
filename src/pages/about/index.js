@@ -39,7 +39,7 @@ export const educations = [
 
 const SingleExperience = ({ exp }) => {
   return (
-    <StyledExperience>
+    <StyledExperience data-aos="fade-down">
       <div className="row-one">
         <div className="left">
           {" "}
@@ -71,18 +71,27 @@ export default function About() {
   return (
     <Paper>
       <StyledAbout>
-        <H1 className="py-12"> About Me </H1>
-        <P4>
+        <H1 className="py-12" data-aos="fade-down">
+          {" "}
+          About Me{" "}
+        </H1>
+        <P4 data-aos="fade-down">
           {" "}
           I'm a very passionate MERN stack web developer. I love problem solving
           and facing challenges because coding is one thing that always makes me
           excited every day.{" "}
         </P4>
-        <H1 className="my-12"> Work Experience </H1>
+        <H1 className="my-12" data-aos="fade-down">
+          {" "}
+          Work Experience{" "}
+        </H1>
         {experiences.map((exp) => (
           <SingleExperience exp={exp} />
         ))}
-        <H1 className="my-12"> Education </H1>
+        <H1 className="my-12" data-aos="fade-down">
+          {" "}
+          Education{" "}
+        </H1>
         {educations.map((exp) => (
           <SingleExperience exp={exp} />
         ))}

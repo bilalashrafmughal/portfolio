@@ -7,12 +7,15 @@ export default function Hero() {
   return (
     <Paper>
       <StyledHero className="grid grid-cols-1 md:grid-cols-2">
-        <div className="right-side m-auto md:float-right">
+        <div data-aos="fade-right" className="right-side m-auto md:float-right">
           <div className="image-wrapper m-auto w-96 h-96">
             <img src="/assets/icons/profile_image.jpg" alt="profile" />
           </div>
         </div>
-        <div className="left-side m-auto text-center md:text-left md:float-left">
+        <div
+          data-aos="fade-left"
+          className="left-side m-auto text-center md:text-left md:float-left"
+        >
           <H1> Hi 👋, </H1>
           <H1> My name is </H1>
           <H1Gradient> Bilal Ashraf </H1Gradient>

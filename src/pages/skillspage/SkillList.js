@@ -69,7 +69,12 @@ const skills = [
 
 const Skill = ({ skill, isFirst, isLast }) => {
   return (
-    <StyledSkill key={skill.name} isFirst={isFirst} isLast={isLast}>
+    <StyledSkill
+      key={skill.name}
+      isFirst={isFirst}
+      isLast={isLast}
+      data-aos="fade-down"
+    >
       <img src={`assets/skills/${skill.name}.png`} alt={skill} />
       <ProgressBar thick={10} fill={skill.strength} />
       <p> {skill.strength}% </p>
@@ -82,8 +87,11 @@ export default function SkillList() {
     <Paper>
       <StyledSkills>
         <div className="heading-part">
-          <H2> My Tech Stack </H2>
-          <P1> Technologies I’ve been working with recently </P1>
+          <H2 data-aos="fade-down"> My Tech Stack </H2>
+          <P1 data-aos="fade-down">
+            {" "}
+            Technologies I’ve been working with recently{" "}
+          </P1>
         </div>
 
         <div className="skills-container grid grid-cols-1 md:grid-cols-6 gap-10">
