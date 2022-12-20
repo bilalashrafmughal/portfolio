@@ -86,7 +86,7 @@ export default function SkillList() {
           <P1> Technologies I’ve been working with recently </P1>
         </div>
 
-        <div className="skills-container grid grid-cols-6 gap-10">
+        <div className="skills-container grid grid-cols-1 md:grid-cols-6 gap-10">
           {skills.map((skill, i) => (
             <Skill
               skill={skill}

@@ -35,7 +35,7 @@ export default function Skills() {
           <P1> Technologies I’ve been working with recently </P1>
         </div>
 
-        <div className="skills-container grid grid-cols-6 gap-10">
+        <div className="skills-container grid grid-cols-1 md:grid-cols-6 gap-10">
           {skills.map((skill, i) => (
             <Skill
               key={skill}
@@ -52,6 +52,7 @@ export default function Skills() {
 
 const StyledSkills = styled.div`
   padding: 100px 0;
+  margin: auto;
   .heading-part {
     text-align: center;
   }
