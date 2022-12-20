@@ -9,7 +9,7 @@ export default function Footer() {
   const mode = useSelector((state) => state.mode.mode);
   return (
     <Paper>
-      <div className="flex justify-between items-center py-24">
+      <div className="flex flex-col md:flex-row justify-between items-center py-24">
         <div className="nav-logo w-32">
           <img
             src={
@@ -21,10 +21,10 @@ export default function Footer() {
           />
         </div>
 
-        <div className="text-side flex justify-between">
-          <P5> +923436156233 </P5>
-          <P5 className="mx-14"> bilalashraf6233@gmail.com </P5>
-          <div className="icons-list flex items-center">
+        <div className="text-side flex flex-col md:flex-row justify-between">
+          <P5 className="text-center md:text-left"> +923436156233 </P5>
+          <P5 className="md:mx-14"> bilalashraf6233@gmail.com </P5>
+          <div className="icons-list flex justify-center mt-10 md:mt-0 items-center">
             {contactIcons.map((icon) => (
               <div key={icon.name} className="single-icon mx-3">
                 <img src={`${icon.icon}`} alt={icon.name} />

@@ -47,18 +47,18 @@ const SingleExperience = ({ exp }) => {
         </div>
         <div className="right">{exp.job_type}</div>
       </div>
-      <div className="row-two">
-        <div className="left">
-          <div className="company-block flex items-center">
+      <div className="row-two md:flex md:justify-between">
+        <div className="left md:flex">
+          <div className="company-block flex items-center md:mr-9 lg:mr-20">
             <img src="/assets/icons/exp.png" alt="exp" />
             <P6> {exp.company} </P6>
           </div>
-          <div className="city-block flex items-center">
+          <div className="city-block flex items-center flex-1">
             <img src="/assets/icons/location.png" alt="location" />
-            <P6> {exp.city} </P6>
+            <P6 className="flex-1"> {exp.city} </P6>
           </div>
         </div>
-        <div className="right">
+        <div className="right flex items-center">
           <img src="/assets/icons/date.png" alt="date" />
           <P6 className="ml-2"> {exp.start_date} </P6>
         </div>
@@ -71,7 +71,7 @@ export default function About() {
   return (
     <Paper>
       <StyledAbout>
-        <H1 className="my-12"> About Me </H1>
+        <H1 className="py-12"> About Me </H1>
         <P4>
           {" "}
           I'm a very passionate MERN stack web developer. I love problem solving
@@ -117,24 +117,20 @@ const StyledExperience = styled.div`
     }
   }
   .row-two {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
     .left {
-      flex: 1;
+      /* flex: 1; */
       .company-block {
-        width: 30%;
+        /* width: 30%; */
       }
       img {
         margin-right: 6px;
       }
-      display: flex;
-      align-items: center;
+      /* display: flex;
+      align-items: center; */
     }
     .right {
-      display: flex;
-      align-items: center;
+      /* display: flex;
+      align-items: center; */
     }
   }
 `;

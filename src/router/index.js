@@ -7,11 +7,13 @@ import Footer from "pages/home/footer";
 import SkillsPage from "pages/skillspage";
 import Projects from "pages/home/projects";
 import Contact from "pages/contact";
+import MobileNavBar from "shared/navbar/MobileNavBar";
 
 export default function Router() {
   return (
     <BrowserRouter>
       <Navbar />
+      <MobileNavBar />
       <Routes>
         <Route path="/" index element={<Home />} />
         <Route path="/about" element={<About />} />

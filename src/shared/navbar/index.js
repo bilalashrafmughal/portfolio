@@ -2,12 +2,12 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getContactIcons } from "shared/data";
-import Paper from "shared/Paper";
+import NavPaper from "shared/NavPaper";
 import { darkTheme, lightTheme } from "shared/store/modeSlice";
 import styled from "styled-components";
 import { P5 } from "theme/Typos";
 
-const navLinks = [
+export const navLinks = [
   {
     name: "Home",
     path: "/",
@@ -42,7 +42,7 @@ export default function Navbar() {
     dispatch(darkTheme());
   };
   return (
-    <Paper>
+    <NavPaper>
       <StyledNavbar mode={mode}>
         <div className="nav-logo">
           <Link to="/">
@@ -85,21 +85,30 @@ export default function Navbar() {
           />
         </div>
       </StyledNavbar>
-    </Paper>
+    </NavPaper>
   );
 }
 
 const StyledNavbar = styled.div`
   display: flex;
   align-items: center;
+  white-space: pre;
   justify-content: space-between;
+  padding: 40px 0;
+  @media (max-width: 768px) {
+    display: none;
+  }
   .nav-logo {
-    width: 200px;
+    width: 100px;
+    min-width: 50px;
     border-radius: 50%;
+    a img {
+      width: 100%;
+    }
   }
   .theme-switch {
-    width: 32px;
-    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
     border-radius: 50%;
     background-color: #d9d9d9;
     border: 1px solid
@@ -119,6 +128,12 @@ const StyledNavbar = styled.div`
     img {
       width: 25px;
       height: auto;
+    }
+  }
+  .contacts-icon {
+    .single-icon {
+      min-width: 32px;
+      min-height: 32px;
     }
   }
 `;
