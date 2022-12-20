@@ -23,7 +23,7 @@ export default function MobileNavBar() {
   };
   return (
     <NavPaper>
-      <StyledMobileNav>
+      <StyledMobileNav data-aos="fade-down">
         <div className="accordian">
           <div className="nav-logo w-14">
             <img
@@ -51,7 +51,11 @@ export default function MobileNavBar() {
           {open && (
             <div className="nav-links">
               {navLinks.map((navLink) => (
-                <div key={navLink.name} className="single-link">
+                <div
+                  key={navLink.name}
+                  className="single-link"
+                  data-aos="fade-down"
+                >
                   <Link to={navLink.path} onClick={() => setOpen(false)}>
                     {" "}
                     <P4> {navLink.name} </P4>{" "}
@@ -59,7 +63,14 @@ export default function MobileNavBar() {
                 </div>
               ))}
 
-              <div className="single-link" onClick={handleThemeChange}>
+              <div
+                className="single-link"
+                onClick={() => {
+                  setOpen(false);
+                  handleThemeChange();
+                }}
+                data-aos="fade-down"
+              >
                 <P4> {mode === "light" ? "Dark Theme" : "Light Theme"} </P4>
               </div>
             </div>

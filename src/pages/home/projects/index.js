@@ -49,7 +49,7 @@ export const projectsList = [
 
 export const Project = ({ project }) => {
   return (
-    <ProjectCard key={project.image}>
+    <ProjectCard key={project.image} data-aos="fade-down">
       <img src={`assets/projects/${project.image}.png`} alt={project.image} />
       <div className="info-part">
         <P1 className="mb-4"> {project.title} </P1>
@@ -72,8 +72,11 @@ export default function Projects() {
     <Paper>
       <StyledProjects>
         <div className="heading-part">
-          <H2> Projects </H2>
-          <P1> Technolog ies I’ve been working with recently </P1>
+          <H2 data-aos="fade-down"> Projects </H2>
+          <P1 data-aos="fade-down">
+            {" "}
+            Technolog ies I’ve been working with recently{" "}
+          </P1>
         </div>
       </StyledProjects>
 
