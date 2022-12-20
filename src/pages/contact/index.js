@@ -1,6 +1,6 @@
 import React from "react";
 import Paper from "shared/Paper";
-import { H1, H1Gradient, H5 } from "theme/Typos";
+import { H1 } from "theme/Typos";
 import styled from "styled-components";
 
 export default function Contact() {
