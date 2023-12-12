@@ -48,7 +48,7 @@ export const H5 = styled.h5`
 export const P1 = styled.p`
   font-weight: 400;
   font-size: 3.2rem;
-  line-height: 2.6rem;
+  line-height: 4rem;
   color: ${({ theme }) => theme.colors.secondary};
   @media (max-width: 320px) {
     font-size: 1.5rem;

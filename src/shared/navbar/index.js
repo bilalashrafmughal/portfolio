@@ -69,7 +69,11 @@ export default function Navbar() {
         </div>
         <div className="contacts-icon flex">
           {contactIcons.map((icon) => (
-            <div key={icon.name} className="single-icon mx-3">
+            <div
+              key={icon.name}
+              className="single-icon mx-3 cursor-pointer"
+              onClick={() => window.open(icon.link, "_blank")}
+            >
               <img src={icon.icon} alt={icon.name} />
             </div>
           ))}
@@ -78,8 +82,8 @@ export default function Navbar() {
           <img
             src={
               mode === "light"
-                ? "/assets/icons/light.png"
-                : "assets/icons/dark.png"
+                ? `${window.location.origin}/assets/icons/light.png`
+                : `${window.location.origin}/assets/icons/dark.png`
             }
             alt={mode}
           />

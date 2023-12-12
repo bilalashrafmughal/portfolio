@@ -2,74 +2,39 @@ import React from "react";
 import styled from "styled-components";
 import Paper from "shared/Paper";
 import { H2, P1, P4, P4UB } from "theme/Typos";
-export const projectsList = [
-  {
-    image: "project-01",
-    title: "Style Craft",
-    description:
-      "This website is a portfolio website for a small glass and aluminum business which offers its services in UAE. This business offers glass partition, glass door shower glass door and aluminum doors etc.",
-    preview: "https://stylecrafts.netlify.app/",
-    tech: "HTML, CSS, Javascript, Bootstrap",
-  },
-  {
-    image: "project-05",
-    title: "Meezam Impex",
-    description:
-      "This is a full stack web application which deals in garments and sports products. This is a an E-commerce web application. User can generate query about products which he like to import and this admin panel as well. ",
-    preview: "https://meezamimpex.netlify.app/",
-    tech: "React js, Node js, Express js, MongoDB",
-  },
-  {
-    image: "project-02",
-    title: "Lal Techonologies",
-    description:
-      "This website is offers its services for medical fields. This is a multiple pages website contains sliders manes, routing, animation etc. These services are Doc. Management, Eligibility & Auth, and Call Center Services.  ",
-    preview: "https://laltechnologies.com/",
-    tech: "React js, Material UI, Bootstrap, React-Bootstrap",
-  },
-  {
-    image: "project-03",
-    title: "AHD Alabrar",
-    description:
-      "This is React js web application for glass and aluminium business. This business offers stair work, glass partition, glass door shower glass door and aluminum doors, swimmer glass, welding service, paint work etc. ",
-    preview: "https://www.ahdalabrar.com/",
-    tech: "React js, Tailwind CSS, Styled-components",
-  },
-  {
-    image: "project-04",
-    title: "Social App",
-    description:
-      "This is full stack social app. This project covers authentication, singup, create posts, update posts, delete posts and view list of posts.Further more follow and unfollow and like and comments on any post. ",
-    preview: "https://portfolio-social-app.netlify.app/",
-    tech: "React js, bootstrap, Node js, Express js, MongoDB",
-  },
-  {
-    image: "project-06",
-    title: "Strada",
-    description:
-      "This is enterprise property manager system which was built in CodeFulcurm team. This system consist of modules like budget calender, handling unpaid charges, invoices, and Cois.",
-    preview: "https://www.strada.ai/",
-    tech: "React js, bootstrap, Python, SQL",
-  },
-];
+import { Carousel } from "react-responsive-carousel";
+import { projectsList } from "shared/data";
+import { useNavigate } from "react-router-dom";
 
 export const Project = ({ project }) => {
+  const navigate = useNavigate();
   return (
-    <ProjectCard key={project.image} data-aos="fade-down">
-      <div className="image-wrapper">
-        <img src={`assets/projects/${project.image}.png`} alt={project.image} />
-      </div>
+    <ProjectCard
+      key={project.image}
+      data-aos="fade-down"
+      onClick={() => navigate(`/project/${project.project}`)}
+    >
+      <Carousel showThumbs={false} showStatus={false} autoPlay infiniteLoop>
+        {project.images.map((img, key) => (
+          <div key={key} className="image-wrapper">
+            <img
+              src={`assets/projects/${project.project}/${img}.PNG`}
+              alt={project.image}
+            />
+          </div>
+        ))}
+      </Carousel>
       <div className="info-part">
-        <P1 className="mb-4"> {project.title} </P1>
-        <P4> {project.description} </P4>
-        <P4 className="my-6">
+        <P1 className="mb-4"> {project.title}</P1>
+        <P4 className="info-description"> {project.description} </P4>
+        <P4 className="my-6 info-tech">
           <span className="font-semibold">Tech Stack:</span> {project.tech}
         </P4>
         <div className="bottom-bar flex items-center">
           <img src="assets/icons/attachment.png" alt="att" />
           <a href={project.preview} target="_blank" rel="noreferrer">
             {" "}
-            <P4UB> Live Preview </P4UB>
+            <P4UB>Live Preview</P4UB>
           </a>
         </div>
       </div>
@@ -90,7 +55,7 @@ export default function Projects() {
         </div>
       </StyledProjects>
 
-      <div className="projects-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="projects-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {projectsList.map((project) => (
           <Project key={project.image} project={project} />
         ))}
@@ -107,14 +72,33 @@ const StyledProjects = styled.div`
 `;
 
 const ProjectCard = styled.div`
-  max-width: 530px;
+  max-width: 400px;
   overflow: hidden;
-  border-radius: 20px;
   height: auto;
   margin: auto;
   background-color: ${({ theme }) => theme.colors.cardBackground};
   box-shadow: 2px 2px 100px rgba(0, 0, 0, 0.2);
   margin-bottom: 62px;
+  transform: scale(1);
+  cursor: pointer;
+  :hover {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  }
+  button {
+    height: 30px;
+    width: 30px;
+    background: black !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: absolute !important;
+    top: 50% !important;
+    margin: 6px;
+  }
+  button:hover {
+    background: none !important;
+  }
   .image-wrapper {
     height: 260px;
     width: 100%;
@@ -125,6 +109,12 @@ const ProjectCard = styled.div`
   }
   .info-part {
     padding: 28px;
+    .info-description {
+      min-height: 160px;
+    }
+    .info-tech {
+      height: 80px;
+    }
     .bottom-bar {
       img {
         width: 15px;

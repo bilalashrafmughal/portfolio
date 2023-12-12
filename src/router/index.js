@@ -8,6 +8,8 @@ import SkillsPage from "pages/skillspage";
 import Projects from "pages/home/projects";
 import Contact from "pages/contact";
 import MobileNavBar from "shared/navbar/MobileNavBar";
+import NotFound from "pages/404";
+import Project from "pages/project";
 
 export default function Router() {
   return (
@@ -20,6 +22,8 @@ export default function Router() {
         <Route path="/skills" element={<SkillsPage />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact-us" element={<Contact />} />
+        <Route path="/project/:project" element={<Project />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </BrowserRouter>

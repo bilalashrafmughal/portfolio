@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export default function Paper({ children }) {
-  return <Wrapper>{children}</Wrapper>;
+export default function Paper({ children, ...props }) {
+  return <Wrapper {...props}>{children}</Wrapper>;
 }
 
 const Wrapper = styled.div`
